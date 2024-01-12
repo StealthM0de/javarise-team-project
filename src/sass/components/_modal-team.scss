@@ -100,6 +100,12 @@
   }
 }
 
+.student:hover,
+.student:focus {
+  box-shadow: 0 0 10px 3px #2e009a;
+  border-radius: 5px;
+}
+
 .student__img {
   border-radius: 15px;
   width: 75px;

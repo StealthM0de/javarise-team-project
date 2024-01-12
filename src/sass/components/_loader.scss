@@ -25,7 +25,6 @@
   background-repeat: no-repeat;
   z-index: 10;
   perspective: 500px;
-  box-shadow: 0 0 115px 3px $second-color;
   border-radius: 30%;
 }
 .loader::before {
@@ -52,6 +51,7 @@
   box-sizing: border-box;
   border: 7px solid $second-color;
   border-radius: 50%;
+  box-shadow: 0 0 115px 3px $second-color;
   animation: rotate 0.5s linear infinite;
 }
 
