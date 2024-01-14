@@ -280,15 +280,17 @@
 
     margin-bottom: 74px;
   }
+
+  &__bottominfo {
+    padding: 100px;
+    color: #0e0e0e;
+    background-color: #dc56c5;
+  }
 }
 
 .event {
   // &__single_price{
   //   margin-bottom: ;
-  // }
-  // &__bottominfo {
-  //   padding: 100px;
-  //   color: #0e0e0e;
   // }
 
   &__priceRange {
