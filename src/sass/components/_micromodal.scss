@@ -66,7 +66,7 @@
   background-color: $bg-color;
   padding-left: 74px;
   padding-right: 74px;
-  padding-top: 50px;
+  padding-top: 25px;
   width: calc(946px * 0.7);
   max-height: 100vh;
   border-radius: 4px;
@@ -257,6 +257,7 @@
     border-top-left-radius: 300px;
     border-bottom-right-radius: 300px;
     margin: 0;
+    line-height: 1.4;
   }
 
   &__container h2 {
@@ -396,7 +397,18 @@
 }
 @media screen and (max-width: 767px) {
   .modal {
+    &__container {
+      text-align: center;
+      line-height: 1.4;
+      border-top-left-radius: 150px;
+      border-bottom-right-radius: 150px;
+    }
+    &__content {
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
   }
+
   .event {
     &__prices {
       display: block;
@@ -409,6 +421,7 @@
   .modal {
     &__container {
       width: 595px;
+      line-height: 1.4;
     }
     &__footer {
       width: 260px;
