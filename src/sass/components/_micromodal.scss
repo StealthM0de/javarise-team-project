@@ -250,12 +250,17 @@
     color: $second-color;
     font-weight: 600;
     font-size: $normal-size;
+    text-align: justify;
   }
 
   &__container {
     border-top-left-radius: 300px;
     border-bottom-right-radius: 300px;
     margin: 0;
+  }
+
+  &__container h2 {
+    color: $second-color;
   }
 
   &__top_image {
@@ -286,10 +291,10 @@
   // &__single_price{
   //   margin-bottom: ;
   // }
-  // &__bottominfo {
-  //   padding: 100px;
-  //   color: #0e0e0e;
-  // }
+  &__bottominfo {
+    padding: 100px;
+    color: #dc56c5;
+  }
 
   &__priceRange {
     color: #dc56c5;
