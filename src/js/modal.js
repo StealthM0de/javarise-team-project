@@ -1,9 +1,9 @@
 import { fetchInfoEvent, chooseBestImage } from './fetch-data';
 import MicroModal from 'micromodal';
-import renderCards from './render-cards';
-import simpleLightbox from 'simplelightbox';
-const modalContainer = document.querySelector('.modal__container');
-const modalContentElem = document.querySelector('.modal__content');
+// import renderCards from './render-cards';
+// import simpleLightbox from 'simplelightbox';
+// const modalContainer = document.querySelector('.modal__container');
+// const modalContentElem = document.querySelector('.modal__content');
 const modalTopImage = document.querySelector('.modal__top_image');
 const eventImageElem = document.querySelector('.event__image');
 const infoElem = document.querySelector('.event__info');
