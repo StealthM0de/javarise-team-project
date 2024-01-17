@@ -64,7 +64,9 @@
 
 .modal__container {
   background-color: $bg-color;
-  padding: 30px;
+  padding-left: 74px;
+  padding-right: 74px;
+  padding-top: 25px;
   width: calc(946px * 0.7);
   max-height: 100vh;
   border-radius: 4px;
@@ -91,6 +93,12 @@
 .modal__close {
   background: transparent;
   border: 0;
+  margin-top: 25px;
+  margin-right: 25px;
+}
+
+.modal__close:hover {
+  transform: scale(1.5);
 }
 
 .modal__header .modal__close:before {
@@ -242,12 +250,18 @@
     color: $second-color;
     font-weight: 600;
     font-size: $normal-size;
+    text-align: justify;
   }
 
   &__container {
-    border-top-left-radius: 150px;
-    border-bottom-right-radius: 150px;
-    margin: auto 12px;
+    border-top-left-radius: 300px;
+    border-bottom-right-radius: 300px;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  &__container h2 {
+    color: $second-color;
   }
 
   &__top_image {
@@ -275,6 +289,23 @@
 }
 
 .event {
+  // &__single_price{
+  //   margin-bottom: ;
+  // }
+  &__bottominfo {
+    padding: 100px;
+    color: #dc56c5;
+  }
+
+  &__priceRange {
+    color: #dc56c5;
+  }
+  &__prices {
+    display: flex;
+    gap: 60px;
+    // color: #dc56c5;
+  }
+
   &__image {
     display: none;
 
@@ -291,6 +322,7 @@
     flex-direction: column;
     text-align: center;
   }
+
   &__btn1 {
     display: inline-block;
     background-color: $main-color;
@@ -324,6 +356,11 @@
       height: 50px;
     }
   }
+
+  // &____bottominfo {
+  //   text-align: center;
+  //   display: block;
+  // }
   &__btn2 {
     display: inline-block;
     background-color: $bg-color;
@@ -354,18 +391,41 @@
       position: absolute;
       top: 0;
       left: 0;
+      color: #0e0e0e;
     }
   }
 }
+@media screen and (max-width: 767px) {
+  .modal {
+    &__container {
+      text-align: center;
+      line-height: 1.4;
+      border-top-left-radius: 150px;
+      border-bottom-right-radius: 150px;
+    }
+    &__content {
+      margin-top: 0rem;
+      margin-bottom: 0rem;
+    }
+  }
 
+  .event {
+    &__prices {
+      display: block;
+      text-align: center;
+    }
+  }
+}
 //  tablet
 @media screen and (min-width: 768px) {
   .modal {
     &__container {
       width: 595px;
+      line-height: 1.4;
     }
     &__footer {
       width: 260px;
+      margin-top: 50px;
     }
   }
 
@@ -430,6 +490,7 @@
       max-height: 100px;
       overflow: auto;
     }
+
     &__btn2 {
       padding-left: 15px;
       padding-right: 15px;

@@ -1,6 +1,7 @@
 import { fetchInfoEvent, chooseBestImage } from './fetch-data';
 import MicroModal from 'micromodal';
 import renderCards from './render-cards';
+import simpleLightbox from 'simplelightbox';
 const modalContainer = document.querySelector('.modal__container');
 const modalContentElem = document.querySelector('.modal__content');
 const modalTopImage = document.querySelector('.modal__top_image');
@@ -10,6 +11,8 @@ const infoTitleElem = document.querySelector('.event__info_tilte');
 const startDateElem = document.querySelector('.event__start_date');
 const placeElem = document.querySelector('.event__place');
 const whoElem = document.querySelector('.event__who');
+const descriptionElem = document.querySelector('.event__description');
+
 const pricesElem = document.querySelector('.event__prices');
 const cardsElem = document.querySelector('.cards');
 const moreAuthorBtn = document.querySelector('.event__btn2');
@@ -52,13 +55,11 @@ export async function updateModalData(eventId) {
     infoTitleElem.style = 'display: block';
   }
 
-
   startDateElem.innerHTML = `
     ${eventData.dates.start.localDate}
     <br>
     ${eventData.dates.start.localTime || ''} (${eventData.dates.timezone})
   `;
-
 
   whoElem.textContent = eventData.name;
 
@@ -73,23 +74,68 @@ export async function updateModalData(eventId) {
     );
   }
 
+  descriptionElem.textContent = eventData.name;
+
+  for (const venue of eventData._embedded.venues) {
+    placeElem.insertAdjacentHTML(
+      'beforeend',
+      `
+    ${venue.city.name}, ${venue.country.name}
+    <br>
+    ${venue.name}
+    `
+    );
+  }
 
   if (!eventData.priceRanges) {
-
     pricesElem.innerHTML = 'There are no tickets available for this event';
   } else {
     for (const priceRange of eventData.priceRanges) {
       pricesElem.insertAdjacentHTML(
-        'beforeend', `
+        'beforeend',
+        `
           <div class="event__single_price">
           <div>
-              ${priceRange.type.toUpperCase()} ${priceRange.min}-${priceRange.max} ${priceRange.currency}
+              ${priceRange.type.toUpperCase()} ${priceRange.min}-${
+          priceRange.max
+        } ${priceRange.currency}
             </div>
             <a class="event__btn1 event__buy_tickets" href="${
               eventData.url
             }" target="_blank">BUY TICKETS</a>
           </div>
-      `);
+      `
+      );
     }
   }
 }
+
+// import { galleryItems } from "./gallery-items.js";
+
+// console.log(galleryItems);
+
+import { micromodalslide } from './modal.js';
+// Change code below this line
+
+const micromodalslide = document.querySelector('.micromodalslide');
+
+const createGallery = el => {
+  return el
+    .map(({}) => {
+      return `
+      <div class="micromodal-slide"></div>
+`;
+    })
+    .join('');
+};
+
+const photosMarkup = createGallery(micromodalslide);
+micromodalslide.insertAdjacentHTML('beforeend', photosMarkup);
+
+// --------------------------------------------------------------
+const gallery = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+
+gallery.on('show.simplelightbox');
